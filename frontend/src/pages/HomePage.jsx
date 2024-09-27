@@ -7,6 +7,7 @@ import ProductCard from '../components/ProductCard';
 const HomePage = () => {
 
   const {fetchProducts, products} = useProductStore();
+  
   useEffect(() => {
     fetchProducts()
   }, [fetchProducts]);
@@ -39,19 +40,21 @@ const HomePage = () => {
         ))}
       </SimpleGrid>
 
-      <Text
-        fontSize="x1"
-        fontWeight={"bold"}
-        textAlign={"center"}
-        color='gray.500'
-      >
-        No Products found 😥 {" "}
-        <Link to={"/create"}>
-          <Text as="span" color='blue.500' _hover={{textDecoration: "underline"}}>
-            Create a product
-          </Text>
-        </Link>
-      </Text>
+        {products.length === 0 &&(
+                <Text
+                fontSize="x1"
+                fontWeight={"bold"}
+                textAlign={"center"}
+                color='gray.500'
+              >
+                No Products found 😥 {" "}
+                <Link to={"/create"}>
+                  <Text as="span" color='blue.500' _hover={{textDecoration: "underline"}}>
+                    Create a product
+                  </Text>
+                </Link>
+              </Text>
+        )}
       </VStack>
     </Container>
   )

@@ -7,7 +7,6 @@ import { LuSun } from "react-icons/lu";
 const Navbar = () => {
 
     const { colorMode, toggleColorMode} = useColorMode();
-    console.log(colorMode)
 
     return <Container maxW="1140px" px={4}>
         <Flex
